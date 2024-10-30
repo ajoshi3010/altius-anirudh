@@ -1,6 +1,6 @@
 
 import prisma from "../lib/client";
-export default async function PUT(req,res){
+export default async function POST(req,res){
     const{id,date,invoiceNumber,customerName,billingAddress,shippingAddress,gSTIN,totalAmount,invoiceItems,invoiceBillSundrys}=await req.json();
     const totalAmountInvoiceItems = invoiceItems.reduce(function (sum, invoice_item) {
         invoice_item.amount=invoice_item.quantity*invoice_item.price
