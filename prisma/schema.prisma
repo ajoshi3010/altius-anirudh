@@ -32,12 +32,12 @@ model InvoiceItem{
   price Decimal
   amount Decimal
   invoiceId String
-  invoice      Invoice?       @relation(fields: [invoiceId], references: [id])
+  invoice      Invoice?       @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
 }
 model InvoiceBillSundry{
   id   String @id @default(uuid())
   billSundryName String
   amount Decimal
   invoiceId String
-  invoice      Invoice?       @relation(fields: [invoiceId], references: [id])
+  invoice      Invoice?       @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
 }
