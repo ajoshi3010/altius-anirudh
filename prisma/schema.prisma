@@ -13,30 +13,31 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 model Invoice{
-  Id   String @id @default(uuid())
-  Date String
-  InvoiceNumber String
-  BillingAddress String
-  ShippingAddress String
-  GSTIN String
-  TotalAmount Decimal
-  InvoiceItems InvoiceItem[]
-  InvoiceBillSundrys InvoiceBillSundry[]
+  id   String @id @default(uuid())
+  customerName String
+  date String
+  invoiceNumber String
+  billingAddress String
+  shippingAddress String
+  gSTIN String
+  totalAmount Decimal
+  invoiceItems InvoiceItem[]
+  invoiceBillSundrys InvoiceBillSundry[]
   
 }
 model InvoiceItem{
-  Id   String @id @default(uuid())
+  id   String @id @default(uuid())
   itemName String
-  Quantity Decimal
-  Price Decimal
-  Amount Decimal
-  InvoiceId String
-  Invoice      Invoice?       @relation(fields: [InvoiceId], references: [Id])
+  quantity Decimal
+  price Decimal
+  amount Decimal
+  invoiceId String
+  invoice      Invoice?       @relation(fields: [invoiceId], references: [id])
 }
 model InvoiceBillSundry{
-  Id   String @id @default(uuid())
+  id   String @id @default(uuid())
   billSundryName String
-  Amount Decimal
-  InvoiceId String
-  Invoice      Invoice?       @relation(fields: [InvoiceId], references: [Id])
+  amount Decimal
+  invoiceId String
+  invoice      Invoice?       @relation(fields: [invoiceId], references: [id])
 }
