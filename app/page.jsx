@@ -5,9 +5,13 @@ import { useEffect, useState } from "react";
 export default function Page(){
   const router = useRouter();
   const [invoices,setInvoices]=useState([]);
-  useEffect(async ()=>{
-    const response=await fetch('./api/list');
-    setInvoices(response.data.invoices)
+  useEffect(()=>{
+    async function fetchData(){
+
+      const response=await fetch('./api/list');
+      setInvoices(response.data.invoices)
+    }
+    fetchData()
   },[])
 
   return(
