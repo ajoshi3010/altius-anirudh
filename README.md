@@ -1,5 +1,6 @@
 I have done with the backend part of this. Just started the frontend part
-
+schema will be in schema.prisma
+backend will be in api directory
 
 
 
